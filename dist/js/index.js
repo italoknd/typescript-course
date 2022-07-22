@@ -55,3 +55,34 @@ const cueca = {
     tamanho: Size.G
 };
 console.log(camisa);
+//literal types - com ele é possível declarar um valor como um tipo
+let algumaCoisa;
+algumaCoisa = "um_valor";
+// algumaCoisa = "outro_valor" <<< não seria aceito pois o valor não bate com o valor do tipo
+console.log("valor de algumaCoisa >>>", algumaCoisa);
+//porém não é possível modificar o valor dessa variável que não seja o mesmo valor do seu tipo
+// FUNÇÕES
+function sum(a, b) {
+    return a + b;
+}
+console.log("resultado da soma >>>", sum(12, 3));
+//tipando retorno de função
+function sayHelloTo(user) {
+    return `Olá, ${user}`;
+}
+console.log(sayHelloTo("Italo"));
+//Tipando função sem retorno
+function logger(msg) {
+    console.log(msg);
+}
+logger("TESTE!");
+//valores opcionais - quando se quer explicitar um valor que não é obrigatório, usamos o "?"
+function greeting(user, greet) {
+    if (greet) {
+        console.log(`Olá! ${user}, ${greet}`);
+    }
+    else {
+        console.log(`Olá ${user}!`);
+    }
+}
+greeting("Italo");
