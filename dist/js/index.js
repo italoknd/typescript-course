@@ -86,3 +86,4 @@ function greeting(user, greet) {
     }
 }
 greeting("Italo");
+greeting("Italo", "Seja bem vindo(a)! ");

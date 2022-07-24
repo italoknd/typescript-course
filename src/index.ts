@@ -99,13 +99,13 @@ function logger(msg: string):void {
 logger("TESTE!")
 
 //valores opcionais - quando se quer explicitar um valor que não é obrigatório, usamos o "?"
-function greeting(user:string greet?:string){
+function greeting(user:string, greet?:string){
   if(greet){
     console.log(`Olá! ${user}, ${greet}`);
-    
   }else{
     console.log(`Olá ${user}!`);
   }
 }
 
 greeting("Italo")
+greeting("Italo", "Seja bem vindo(a)! ")
