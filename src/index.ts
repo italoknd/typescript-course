@@ -238,3 +238,28 @@ const a4 = new SuperCar("Audi", 4, 2.0)
 console.log(a4);
 a4.showBrand()
 
+//decorators
+//1 - todo decorator é uma função
+//2 - todo decorator retorna uma função que contém os dados que vão ser alterados na classe base
+
+//constructor decorator
+function BaseParameters(){
+  return function<T extends {new (...args: any[]): {}}>(constructor: T){
+    return class extends constructor{
+      id = Math.random()
+      createdAt = new Date()
+    }
+  }
+}
+
+@BaseParameters() //o decorator é executado dessa forma
+class Person {
+  name
+
+  constructor(name: string){
+    this.name = name
+  }
+}
+
+const Italo = new Person("Italo")
+console.log(Italo);

@@ -1,4 +1,10 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 let numero = 20;
 console.log('número >>>', numero);
 //tipos básicos
@@ -166,3 +172,28 @@ class SuperCar extends Car {
 const a4 = new SuperCar("Audi", 4, 2.0);
 console.log(a4);
 a4.showBrand();
+//decorators
+//1 - todo decorator é uma função
+//2 - todo decorator retorna uma função que contém os dados que vão ser alterados na classe base
+//constructor decorator
+function BaseParameters() {
+    return function (constructor) {
+        return class extends constructor {
+            constructor() {
+                super(...arguments);
+                this.id = Math.random();
+                this.createdAt = new Date();
+            }
+        };
+    };
+}
+let Person = class Person {
+    constructor(name) {
+        this.name = name;
+    }
+};
+Person = __decorate([
+    BaseParameters() //o decorator é executado dessa forma
+], Person);
+const Italo = new Person("Italo");
+console.log(Italo);
